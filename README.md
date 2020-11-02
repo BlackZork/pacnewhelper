@@ -33,7 +33,9 @@ How to use:
 1. Run update.sh to update configuration files.
 1. Restart and check all services where confiugration was updated.
 
+Scripts can be also used on the same machine - without copying betweed server and workstation.
+
 TODO:
 
 clean_cache.sh - script that will remove all cached packages 
-excluding ones needed for collect.sh (last two downloaded version)
+excluding ones needed for collect.sh (last two downloaded versions)
