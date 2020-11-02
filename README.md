@@ -36,4 +36,4 @@ How to use:
 TODO:
 
 clean_cache.sh - script that will remove all cached packages 
-excluding ones needed for merge.sh (last two)
+excluding ones needed for collect.sh (last two downloaded version)
