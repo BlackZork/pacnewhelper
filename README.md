@@ -33,7 +33,7 @@ How to use:
 1. Run update.sh to update configuration files.
 1. Restart and check all services where confiugration was updated.
 
-Scripts can be also used on the same machine - without copying betweed server and workstation.
+Scripts can be also used on the same machine - without copying between server and workstation.
 
 TODO:
 
