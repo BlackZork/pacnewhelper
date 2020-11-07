@@ -1,14 +1,19 @@
 #!/bin/bash
+# This script copies contents of configuration files
+# updated by merge.sh back to their original locations.
+# .pacnew files are deleted.
+# Use -b to backup original file
+# BE CAREFUL. Check ${CONF_DIR} before use
 
 CONF_DIR=./out
 
 backup=0
 delete_pacnew=1
 
-usage="Usage: $(basename "$0") [-p|--preserve] [-d|--delete]
+usage="Usage: $(basename "$0") [-b|--backup ] [-p|--preserve]
 where:
     -b|--backup     copy original configuration file to <name>.prev
-    -p|--preserve   do not remove .pacnew file after merging
+    -p|--preserve   do not remove .pacnew file after updating
     -h|--help       show this help and exit
 "
 

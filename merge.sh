@@ -1,4 +1,5 @@
 #!/bin/bash
+# This script calls kdiff3 for all files collected by collect.sh
 #set -x
 
 IN_DIR=./pacnewhelper_in

@@ -1,4 +1,6 @@
 #!/bin/bash
+# This script collects files needed for 
+# kdiff3 three way merge for every .pacnew file it finds in the filesystem
 #set -x
 
 PACMAN_CACHE=/var/cache/pacman/pkg

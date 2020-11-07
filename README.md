@@ -32,10 +32,7 @@ How to use:
 1. Copy ./out directory to root@server
 1. Run update.sh to update configuration files.
 1. Restart and check all services where confiugration was updated.
+1. (Optionally) use clear_cache.sh to remove all old packages from cache directories. This script will 
+   leave the last version needed for next update
 
 Scripts can be also used on the same machine - without copying between server and workstation.
-
-TODO:
-
-clean_cache.sh - script that will remove all cached packages 
-excluding ones needed for collect.sh (last two downloaded versions)
