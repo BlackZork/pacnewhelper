@@ -13,15 +13,13 @@ WORKING_DIR=$(pwd)
 function clear_cache_dir {
     declare -A packages=()
     echo "Creating package list in $1"
-    #for filepath in $1/*.pkg.*; do
-    for filepath in $1/acl*.pkg.*; do
+    for filepath in $1/*.pkg.*; do
         filename=$(basename {$filepath})
         package_name=$(echo ${filename} | sed -n 's/^\(.*\)-.*-[0-9]\+-\(x86_64\|any\)\.pkg\..*$/\1/p')
         if [ ! -z ${package_name} ]; then
             packages[${package_name}]=1
-            #echo "${package_name} <= ${filename}"
         else
-            echo "ERROR: failed to parse package name ${package_name}, ignoring"
+            echo "WARNING: failed to parse package name ${package_name}, ignoring"
         fi
         #exit 1;
     done;
@@ -32,7 +30,6 @@ function clear_cache_dir {
         pkgfiles=$(ls -t ${pkgpattern})
         remove=0
         for pkgpath in ${pkgfiles}; do
-            echo "${pkgpath} remove: ${remove}";
             if [ ${remove} -eq 1 ]; then
                 rm -f ${pkgpath}
                 if [ $? -ne 0 ]; then
