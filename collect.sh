@@ -57,7 +57,7 @@ do
     if [ $? -eq 0 ]; then
         prev_package_arch_pattern=${PACMAN_CACHE}/${package}*
     else 
-        prev_package_arch_pattern=${YAY_CACHE}/${package}/*pkg*
+        prev_package_arch_pattern=${YAY_CACHE}/${package}*
     fi;
 
     # previous installed package will be in second line

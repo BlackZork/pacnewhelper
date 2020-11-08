@@ -1,0 +1,14 @@
+---
+- name: create dir for makepkg packages
+  file:
+    path: /var/cache/makepkg
+    state: directory
+    mode: 'u=rwx,g=rwx,o=rwxt'
+
+- name: set PKGDEST to /var/cache/makepkg in /etc/makepkg.conf
+  lineinfile:
+    path: /etc/makepkg.conf
+    regexp: '^.*PKGDEST=.*'
+    line: 'PKGDEST=/var/cache/makepkg'
+
+    

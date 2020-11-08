@@ -12,9 +12,7 @@ WORKING_DIR=$(pwd)
 
 function clear_cache_dir {
     declare -A packages=()
-    if [ "$2" != "quiet" ]; then
-        echo "Creating package list in $1"
-    fi
+    echo "Creating package list in $1"
     pattern="$1/*.pkg.*"
     for filepath in ${pattern}; do
         if [ "${filepath}" == "${pattern}" ]; then
@@ -32,9 +30,7 @@ function clear_cache_dir {
     done;
 
     # got package list to remove, find old files and remove them all
-    if [ "$2" != "quiet" ]; then
-        echo "Removing old files for ${#packages[@]} package(s) from $1"
-    fi;
+    echo "Removing old files for ${#packages[@]} package(s) from $1"
     for pkg in "${!packages[@]}"; do
         pkgpattern="$1/${pkg}*"
         # do not touch other files that do not 
@@ -43,7 +39,7 @@ function clear_cache_dir {
         remove=0
         for pkgpath in ${pkgfiles}; do
             if [ ${remove} -eq 1 ]; then
-                rm -f ${pkgpath}
+                echo "rm -f ${pkgpath}"
                 if [ $? -ne 0 ]; then
                     exit 1;
                 fi                    
@@ -54,13 +50,8 @@ function clear_cache_dir {
 }
 
 
-#clear_cache_dir ${PACMAN_CACHE}
+clear_cache_dir ${PACMAN_CACHE}
 if [ ! -z  $1 ]; then
-    echo "Cleaning yay cache dir $1"
-    for dir in $(ls -d $1/*/); do
-        clear_cache_dir ${dir} quiet
-    done;
+    echo "Cleaning makepkg cache dir $1"
+    clear_cache_dir $1
 fi
-
-
-

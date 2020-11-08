@@ -1,0 +1,6 @@
+---
+
+- name: Set global dir for yay packages
+  hosts: all
+  roles:
+    - makepkg_config
