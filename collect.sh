@@ -29,8 +29,8 @@ if [ -f "./collect.exclude" ]; then
         find_exclude+=" -o -path ${dir}"
     done < "./collect.exclude"
 
-    find_exclude+=' ) -prune'
 fi
+find_exclude+=' ) -prune'
 
 PACNEW_FILES="$(find / -type d ${find_exclude} -o -regextype posix-extended -regex "/(sys|srv|proc|run|mnt|dev)" -prune -o ! -readable -prune -o -type f -name '*.pacnew' -print)"
 for fname in ${PACNEW_FILES};
