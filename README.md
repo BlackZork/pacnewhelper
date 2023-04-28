@@ -18,7 +18,7 @@ Scripts works for AUR packages if they are stored in common folder. You need to 
 1. On each machine reconfigure makepkg to create packages in one common directory:
 
          mkdir /var/cache/makepkg
-         chown u=rwx,g=rwx,o=rwxt /var/cache/makepkg            
+         chmod u=rwx,g=rwx,o=rwxt /var/cache/makepkg            
 
 1. Configure makepkg to create packages in directory above. Add to /etc/makepkg.conf
 
