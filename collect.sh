@@ -32,7 +32,7 @@ if [ -f "./collect.exclude" ]; then
 fi
 find_exclude+=' ) -prune'
 
-PACNEW_FILES="$(find / -type d ${find_exclude} -o -regextype posix-extended -regex "/(sys|srv|proc|run|mnt|dev)" -prune -o ! -readable -prune -o -type f -name '*.pacnew' -print)"
+PACNEW_FILES="$(find / -type d ${find_exclude} -o -regextype posix-extended -regex "/(sys|srv|proc|run|mnt|dev|tmp)" -prune -o ! -readable -prune -o -type f -name '*.pacnew' -print)"
 for fname in ${PACNEW_FILES};
 do
     #echo "Processing $fname"
