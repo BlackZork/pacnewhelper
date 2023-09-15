@@ -40,6 +40,7 @@ function clear_cache_dir {
         for pkgpath in ${pkgfiles}; do
             if [ ${remove} -eq 1 ]; then
                 echo "rm -f ${pkgpath}"
+                rm -f ${pkgpath}
                 if [ $? -ne 0 ]; then
                     exit 1;
                 fi                    
