@@ -71,8 +71,8 @@ do
         prev_package_arch_pattern=${YAY_CACHE}/${package}*
     fi;
 
-    # previous installed package will be in second line
-    prev_package_file=$(ls -t ${prev_package_arch_pattern} | sed -n 2p)
+    # previous installed package will be the first
+    prev_package_file=$(ls -t ${prev_package_arch_pattern} | grep -v '\.sig$' | head -n 1)
     if [ -z ${prev_package_file} ]; then
         echo "Cannot find previous version of package ${package}"
         exit 4;
