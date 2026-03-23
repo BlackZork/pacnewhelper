@@ -58,6 +58,8 @@ You can use ansible makepkg.playbook to do steps (1) and (2) automatically.
 
 Scripts can be also used on the same machine - without copying between server and workstation.
 
+WARNING: **Three-way diff will not work properly if multiple system upgrades are done without configuration file merging.** In this case base file for three-way merge contains unmerged changes.
+
 # TODO:
 
  - clean_cache.sh: do not leave last version of package if it is not installed in the system.
